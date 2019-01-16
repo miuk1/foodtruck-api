@@ -103,4 +103,15 @@ export default({config, db})=>{
     });
 
     //find review for specific foodtruck
-    //v1/foodtruc
+    //v1/foodtruck/reviews/id
+    api.get('/reviews/:id', (req, res)=>{
+        Review.find({foodtruck: req.params.id}, (err, reviews)=>{
+            if(err){
+                res.send(err);
+            }
+            res.json(reviews);
+        });
+    });
+
+    return api;
+}
