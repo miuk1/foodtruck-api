@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 
 let Account = new Schema({
     email: {
-        type: String,
-        required: true
+        type: String
     },
     password: {
         type: String,

@@ -5,7 +5,7 @@ import initializeDb from '../db';
 import foodtruck from '../controller/foodtruck';
 import account from '../controller/account';
 
-let router = express();
+let router = express.Router();
 
 //connect to db
 initializeDb(db=>{

@@ -3,11 +3,14 @@ import mongoose from 'mongoose';
 import Foodtruck from '../model/foodtruck';
 import Review from '../model/review';
 
+import { authenticate } from '../middleware/authMiddleware';
+
+
 export default({config, db})=>{
     let api = Router();
 
     //'/v1/foodtruck/add'
-    api.post('/add', (req, res)=>{
+    api.post('/add', authenticate, (req, res)=>{
         let newTruck = new Foodtruck();
         newTruck.name = req.body.name;
         newTruck.foodtype = req.body.foodtype;

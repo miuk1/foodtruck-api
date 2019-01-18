@@ -9,13 +9,13 @@ import { generateAccessToken, respond, authenticate } from '../middleware/authMi
 
 
 export default ({config, db}) => {
-    let api = Router;
+    let api = Router();
 
     // v1/account
     api.post('/register', (req,res)=>{
         Account.register(new Account({ username: req.body.email}), req.body.password, (err, account)=>{
             if(err){
-                res.send(err);
+               return  res.status(500).send('An error has occured:'+ err);
             }
             passport.authenticate(
                 'local', {

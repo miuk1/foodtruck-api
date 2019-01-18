@@ -23,13 +23,12 @@ app.use(bodyParser.urlencoded({
 
 //passport config
 app.use(passport.initialize());
-let Account = requre('./model/account');
+let Account = require('./model/account');
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
     },
     Account.authenticate()
-
 ));
 
 passport.serializeUser(Account.serializeUser());
