@@ -16,9 +16,12 @@ var ReveiwSchema = new Schema({
   },
   text: String,
   foodtruck: {
-    type: Schem.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Foodtruck',
     required: true
   }
 });
-module.exports = _mongoose.default.model('Review', ReveiwSchema);
+
+var Review = _mongoose.default.model('Review', ReveiwSchema);
+
+module.exports = Review;

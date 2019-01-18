@@ -15,6 +15,8 @@ var _db = _interopRequireDefault(require("../db"));
 
 var _foodtruck = _interopRequireDefault(require("../controller/foodtruck"));
 
+var _account = _interopRequireDefault(require("../controller/account"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = (0, _express.default)(); //connect to db
@@ -27,6 +29,10 @@ var router = (0, _express.default)(); //connect to db
   })); //api routes
 
   router.use('/foodtruck', (0, _foodtruck.default)({
+    config: _config.default,
+    db: db
+  }));
+  router.use('/account', (0, _account.default)({
     config: _config.default,
     db: db
   }));
