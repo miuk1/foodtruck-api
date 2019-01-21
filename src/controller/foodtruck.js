@@ -44,7 +44,7 @@ export default({config, db})=>{
                  res.send(err);
              }
              res.json(foodtrucks);
-         });
+         });4
      });
 
     //'v1/foodtruck/:id -update
